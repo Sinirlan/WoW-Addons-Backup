@@ -1,15 +1,22 @@
-﻿param ($wow,$history)
+﻿param (
+    [Parameter(Mandatory=$true)]
+    $wow_folder,
+    [int]$history)
 
 #setting up some variables
 $backup_path = $PSScriptRoot                #getting path to folder in which script is placed from system variable
 $date = Get-Date -Format "yyyyMMdd_HHmm"    #getting today's date
 $filename_classic = $date + " - classic.zip" #setting up filename for classic backup
 $filename_retail = $date + " - retail.zip"   #setting up filename for retail backup
-$classic_check = test-path $wow\_classic_
-$retail_check = test-path $wow\_retail_
+$classic_path = "$wow_folder\_classic_"
+$retail_path = "$wow_folder\_retail_"
+$classic_check = test-path $classic_path
+$retail_check = test-path $retail_path
+ 
 
-
-
+Write-Host "Wow Folder: $wow_folder"
+Write-Host "Classic: $classic_path"
+Write-Host "Retail: $retail_path"
 
 IF ($history){ 
    #Delete files older than specified in paramter $history
@@ -19,10 +26,10 @@ IF ($history){
 
 IF($classic_check){
     #if classic installed zip it's addons and configs
-    Compress-Archive -LiteralPath $wow\_classic_\WTF\,$wow\_classic_\Interface\ -DestinationPath $backup_path\$filename_classic
+    Compress-Archive -LiteralPath "$classic_path\WTF\","$classic_path\Interface\" -DestinationPath $backup_path\$filename_classic
 }
 
 IF($retail_check){
     #if retail installed zip it's addons and configs
-    Compress-Archive -LiteralPath $wow\_retail_\WTF\,$wow\_retail_\Interface\ -DestinationPath $backup_path\$filename_retail
+    Compress-Archive -LiteralPath "$retail_path\WTF\","$retail_path\Interface\" -DestinationPath $backup_path\$filename_retail
 }
