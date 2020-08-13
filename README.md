@@ -48,4 +48,4 @@ About arguments:
 `-windowstyle hidden` - prevents powershell window from poping up, runs in "silent mode"  
 `-ExecutionPolicy Bypass` - by default scripts execution is blocked, this argument allows to run the script without changing policy for whole system
 ![Image7](https://github.com/Sinirlan/WoW-Addons-Backup/blob/master/images/7.png)
-6. Last option to set is in tab **Settings*, make sure to check option **Run task as soon as possible after a scheduled start is missed** that way task will run if for example computer was off for longer time
+6. Last option to set is in tab **Settings**, make sure to check option **Run task as soon as possible after a scheduled start is missed** that way task will run if for example computer was off for longer time
