@@ -26,6 +26,9 @@ It will create zip archive in place where script is located, there will be separ
 
 Best way by far is is to set up taks in **Task Scheduler**, built in Windows tool which will run script automatically on login or specified times.
 
+Download script file `addons_backup.ps1` and place it in folder You will want to have Your backup files stored, in this example  
+I will use `D:\Documents\WoW-Addons-Backup`
+
 1. Search for "Task Scheduler" in Start Menu
 ![Image1](https://github.com/Sinirlan/WoW-Addons-Backup/blob/master/images/1.png)
 2. On right hand side click on **Create Task**
