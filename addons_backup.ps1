@@ -20,7 +20,7 @@ Write-Host "Retail: $retail_path"
 
 IF ($history){ 
    #Delete files older than specified in paramter $history
-   Get-ChildItem -path $backup_path | where {$_.Lastwritetime -lt (date).adddays(-$history)} | remove-item -Confirm:$false -Force -Recurse
+   Get-ChildItem *.zip -path $backup_path | where {$_.Lastwritetime -lt (date).adddays(-$history)} | remove-item -Confirm:$false -Force -Recurse
 }
 
 
